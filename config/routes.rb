@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
+  #resources :convos
   devise_for :users
-  root to: "posts#index"
+  root to: "convos#index"
   resources :posts
+  resources :convos do
+    resources :posts, shallow: true
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

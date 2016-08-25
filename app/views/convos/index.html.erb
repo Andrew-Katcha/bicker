@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Convos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Email1</th>
+      <th>Email2</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @convos.each do |convo| %>
+      <tr>
+        <td><%= convo.email1 %></td>
+        <td><%= convo.email2 %></td>
+        <td><%= link_to 'Show', convo %></td>
+        <td><%= link_to 'Edit', edit_convo_path(convo) %></td>
+        <td><%= link_to 'Destroy', convo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Convo', new_convo_path %>

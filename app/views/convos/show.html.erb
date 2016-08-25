@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Email1:</strong>
+  <%= @convo.email1 %>
+</p>
+
+<p>
+  <strong>Email2:</strong>
+  <%= @convo.email2 %>
+</p>
+
+<%= link_to 'Create Post', new_convo_post_path(@convo) %> |
+
+<%= link_to 'Edit', edit_convo_path(@convo) %> |
+<%= link_to 'Back', convos_path %>
