@@ -15,6 +15,9 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = Post.new
+    #binding.pry
+    @post_convo_id = params["convo_id"]
+    binding.pry
   end
 
   # GET /posts/1/edit
@@ -25,6 +28,8 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
+    @post.convo_id = @post_convo_id
+    binding.pry
 
     respond_to do |format|
       if @post.save
@@ -69,6 +74,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:name, :title, :content)
+      params.require(:post).permit(:name, :title, :content, :convo_id)
     end
 end
