@@ -4,7 +4,9 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+   #@posts = Post.all
+   @posts = Post.where(convo_id: params['convo_id'])
+   #@post = Posts.where("convo_id = ?", "@@post_convo_id")
   end
 
   # GET /posts/1
