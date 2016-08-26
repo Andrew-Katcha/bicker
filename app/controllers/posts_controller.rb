@@ -15,9 +15,7 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = Post.new
-    #binding.pry
-    @post_convo_id = params["convo_id"]
-    binding.pry
+    @@post_convo_id = params["convo_id"].to_i
   end
 
   # GET /posts/1/edit
@@ -28,8 +26,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
-    @post.convo_id = @post_convo_id
-    binding.pry
+    @post.convo_id = @@post_convo_id
 
     respond_to do |format|
       if @post.save
